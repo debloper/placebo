@@ -1,17 +1,11 @@
-Bimbo: a bare minimal HTML+CSS boilerplate
-==========================================
+# Placebo
+#### A bare minimal web-project boilerplate
 The Minimal Boilerplate, The Whole Minimal Boilerplate, and Nothing But The Minimal Boilerplate
 
-About Naming:
--------------
-Well, it sits there & looks pretty &mdash; doesn't do anything useful (directly). You only *need* her at times to initiate new projects.
-
-Why New Boilerplate:
---------------------
+## Why New Boilerplate
 I'm not reinventing &mdash; just redesigning the perfect wheels for **my** McLaren F1, because clobbering those general purpose sedan wheels to fit this is a fucking waste of time (each time).
 
-Using/License:
---------------
+## Using/License
 <pre>
            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
                    Version 2, December 2004
