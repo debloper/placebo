@@ -1,31 +1,31 @@
 {
-	"name": "app",
-	"version": "0.0.1",
-	"author": "Soumya Deb <debloper@gmail.com>",
-	"description": "Oneliner elevator-pitch of the app",
-	"contributors": [
-		{
-			"name": "Soumya Deb",
-			"email": "debloper@gmail.com"
-		}
-	],
-	"scripts": {
-		"start": "node ./app.js"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/debloper/app.git"
-	},
-	"keywords": [
-		"example"
-	],
-	"dependencies" : {
-		"ecstatic" :	"0.4.x"
-	},
-	"devDependencies": {},
-	"bundledDependencies": [],
-	"license": "WTFPL",
-	"engines": {
-		"node": ">=0.10"
-	}
+  "name": "app",
+  "version": "0.0.1",
+  "author": "Soumya Deb <debloper@gmail.com>",
+  "description": "Oneliner elevator-pitch of the app",
+  "contributors": [
+    {
+      "name": "Soumya Deb",
+      "email": "debloper@gmail.com"
+    }
+  ],
+  "scripts": {
+    "start": "node ./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/debloper/app.git"
+  },
+  "keywords": [
+    "example"
+  ],
+  "dependencies" : {
+    "ecstatic" :  "0.4.x"
+  },
+  "devDependencies": {},
+  "bundledDependencies": [],
+  "license": "WTFPL",
+  "engines": {
+    "node": ">=0.10"
+  }
 }
