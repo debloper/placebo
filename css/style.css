@@ -35,13 +35,13 @@ hr {
   border-color:       #aaa transparent #fff;
 }
 
-h1 {
-  color:              #ecf0f1;
-  line-height:        1rem;
-}
-
 body > * {
   padding:            4px calc((100% - 800px)/2);
+}
+
+dt {
+	margin-top:         1rem;
+	font-weight:        bold;
 }
 
 nav {
@@ -56,9 +56,19 @@ nav aside {
   float:              right;
   line-height:        3.6rem;
 }
+nav h1 {
+  line-height:        1rem;
+}
+nav h1 a {
+  color:              #ecf0f1;
+}
 
 section {
   height:             calc(100vh - 4rem);
+}
+
+dl, ol, ul {
+	font-size:          1.2rem;
 }
 
 
@@ -67,6 +77,9 @@ section {
   color:              #ecf0f1;
   padding:            4px 1rem;
   font-size:          1.25rem;
+}
+#branding {
+  text-align:         center;
 }
 .logo {
   display:            block;
@@ -80,21 +93,16 @@ section {
 }
 .punchline {
   font-size:          1.5rem;
-  text-align:         center;
   text-transform:     uppercase;
 }
-.next {
-  color:              #2c3e50;
-  display:            block;
-  margin-top:         4rem;
-  font-size:          4rem;
-  text-align:         center;
-  -webkit-transform:  rotate(90deg);
-  transform:          rotate(90deg);
+#about h2 {
+	margin: 						8rem auto 0;
+	text-align:         center;
+	font-weight: 				normal;
 }
 
 /* 2. Pseudoclass */
-.portal:hover {
+.portal:hover, nav h1 a:hover {
   color:              #066;
 }
 
