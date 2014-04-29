@@ -58,6 +58,7 @@ nav aside {
 }
 nav h1 {
   line-height:        1rem;
+  text-align:         center;
 }
 nav h1 a {
   color:              #ecf0f1;
@@ -65,6 +66,7 @@ nav h1 a {
 
 section {
   height:             calc(100vh - 4rem);
+  text-align:         center;
 }
 
 dl, ol, ul {
@@ -78,32 +80,10 @@ dl, ol, ul {
   padding:            4px 1rem;
   font-size:          1.25rem;
 }
-#branding {
-  text-align:         center;
-}
-.logo {
-  display:            block;
-  width:              16rem;
-  height:             16rem;
-  margin:             4rem auto 2rem;
-  border:             16px solid rgba(255, 255, 255, 0.75);
-  border-radius:      50%;
-  background-color:   #95a5a6;
-  box-shadow:         0 0 10px #999;
-}
-.punchline {
-  font-size:          1.5rem;
-  text-transform:     uppercase;
-}
-#about h2 {
-	margin: 						8rem auto 0;
-	text-align:         center;
-	font-weight: 				normal;
-}
 
 /* 2. Pseudoclass */
-.portal:hover, nav h1 a:hover {
-  color:              #066;
+#title a:hover {
+  text-shadow:        0 0 2px #222, 0 0 4px #fff;
 }
 
 /* 2. Media Queries */

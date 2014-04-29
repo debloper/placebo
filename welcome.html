@@ -35,22 +35,14 @@
 		<h1 id="title"><a href="index.html">Web QE Demo App</a></h1>
 	</nav>
 
-	<section id="hello">
-		<h2>Hey, hello there!</h2>
-		<h3>I am Anisha... and you are?</h3>
-		<div>
-			<input type="text" id="name" placeholder="Your Name">
-			<button id="reply">Reply</button>
-		</div>
+	<section id="welcome">
+		<h2>Welcome<span id="name">, </span>!</h2>
 	</section>
 
 	<!-- Lazy Loadable JS -->
 	<script>
-		var button = document.getElementById("reply");
-		button.addEventListener("click", function (event) {
-			var name = document.getElementById("name").value;
-			location.assign("welcome.html#" + name);
-		}, false);
+		var name = location.hash.split("#")[1];
+		document.getElementById("name").innerHTML += name;
 	</script>
 
 </body>
