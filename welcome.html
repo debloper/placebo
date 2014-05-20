@@ -36,13 +36,13 @@
 	</nav>
 
 	<section id="welcome">
-		<h2>Welcome<span id="name">, </span>!</h2>
+		<h2>Welcome<span id="yourName">, </span>!</h2>
 	</section>
 
 	<!-- Lazy Loadable JS -->
 	<script>
-		var name = location.hash.split("#")[1];
-		document.getElementById("name").innerHTML += name;
+		var yourName = location.search.split("?")[1];
+		document.getElementById("yourName").innerHTML += yourName;
 	</script>
 
 </body>

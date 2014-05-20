@@ -75,6 +75,7 @@ dl, ol, ul {
 
 
 /* 1. ID & Class */
+#ask { display: none; }
 .portal {
   color:              #ecf0f1;
   padding:            4px 1rem;
