@@ -52,7 +52,10 @@
 	<script>
 		// Recurrent globals:
 		var myName = document.getElementById("myName");
-		var yourName = document.getElementById("yourName")
+		var yourName = document.getElementById("yourName");
+
+		// Focus on 'tell' input at start
+		myName.focus();
 
 		// On Enter key while telling, assign URL hash & move
 		myName.onkeyup = function (event) {
@@ -69,6 +72,7 @@
 				input.parentNode.removeChild(input);
 				document.getElementById("tell").innerHTML += iAm;
 				document.getElementById("ask").style.display = "block";
+				yourName.focus();
 			}
 		}
 

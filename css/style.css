@@ -43,9 +43,12 @@ dt {
 	margin-top:         1rem;
 	font-weight:        bold;
 }
+h1 { font-size: 3rem; }
+h2 { font-size: 2.25rem; }
+h3 { font-size: 2rem; }
 
 nav {
-  height:             4rem;
+  height:             6rem;
   margin:             0 auto;
   background-color:   #1abc9c;
   border:             solid #16a085;
@@ -65,14 +68,14 @@ nav h1 a {
 }
 
 section {
-  height:             calc(100vh - 4rem);
+  height:             calc(100vh - 6rem);
   text-align:         center;
+  font-size:          2rem;
 }
 
 dl, ol, ul {
 	font-size:          1.2rem;
 }
-
 
 /* 1. ID & Class */
 #ask { display: none; }
@@ -81,10 +84,24 @@ dl, ol, ul {
   padding:            4px 1rem;
   font-size:          1.25rem;
 }
+.choices {
+  display:            inline-block;
+  padding:            0.5rem 1rem;
+  margin:             0.5rem;
+  color:              #fff;
+  background-color:   #e98b39;
+  border-bottom:      4px solid #d35400;
+  -webkit-transition: all 300ms ease;
+  transition:         all 300ms ease;
+}
 
 /* 2. Pseudoclass */
 #title a:hover {
   text-shadow:        0 0 2px #222, 0 0 4px #fff;
+}
+.choices:hover {
+  background-color:   #466077;
+  border-bottom:      4px solid #2c3e50;
 }
 
 /* 2. Media Queries */
