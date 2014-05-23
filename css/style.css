@@ -96,6 +96,16 @@ dl, ol, ul {
 }
 
 /* 2. Pseudoclass */
+input[type="text"] {
+  width:              20rem;
+  padding:            0.5rem 1rem;
+  border:             1px solid #aaa;
+  font-size:          2rem;
+  border-radius:      4px;
+}
+input[type="text"]:focus {
+  border-color:       #69C;
+}
 #title a:hover {
   text-shadow:        0 0 2px #222, 0 0 4px #fff;
 }

@@ -13,6 +13,7 @@
 /* 0. Elements */
 section {
   height:             auto;
+  font-size:          1.25rem;
 }
 
 /* 1. ID & Class */
@@ -23,7 +24,27 @@ section {
   background-color:   #ccc;
   border-bottom:      1px solid #999;
 }
+.thumbnail {
+  color:              #444;
+  width:              152px;
+  height:             192px;
+  margin:             1rem;
+  display:            inline-block;
+  border:             1px solid #aaa;
+  background-color:   #fff;
+}
+.thumbnail > div {
+  width:              inherit;
+  padding:            0 0.5rem;
+  overflow:           hidden;
+  white-space:        nowrap;
+  text-overflow:      ellipsis;
+}
 
 /* 2. Pseudoclass */
+.thumbnail:hover {
+  color:              #069;
+  box-shadow:         1px 1px 4px #999;
+}
 
 /* 3. Media Queries */
