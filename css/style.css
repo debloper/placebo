@@ -52,7 +52,7 @@ nav {
   margin:             0 auto;
   background-color:   #1abc9c;
   border:             solid #16a085;
-  border-width:       0 0 2px;
+  border-width:       0 0 3px;
 
 }
 nav aside {
@@ -104,4 +104,4 @@ dl, ol, ul {
   border-bottom:      4px solid #2c3e50;
 }
 
-/* 2. Media Queries */
+/* 3. Media Queries */
