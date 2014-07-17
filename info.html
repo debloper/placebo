@@ -26,7 +26,7 @@
 	<![endif]-->
 
 	<!-- Lastly, scripts -->
-	<script src="js/app.js"></script>
+	<script src="js/mediawiki.js"></script>
 
 </head>
 
@@ -37,7 +37,7 @@
 	</nav>
 
 	<div id="infosearch">
-		Would you like to see pictures of:<br />
+		Would you like to know about:<br />
 		<input type="text" id="search" placeholder="Query">
 	</div>
 
@@ -57,43 +57,33 @@
 
 		// Tell what to do, when called for action
 		function getInfo (query) {
-			document.getElementById("content").innerHTML = "Loading...";
+			var container = document.getElementById("content");
 
-			var request = new XMLHttpRequest();
-			var endpoint = "https://api.flickr.com/services/rest/?"
-							+ "method=flickr.photos.search&api_key=c9d1d33ffc3d34dbbddc28093b8c2f95"
-							+ "&text="+ encodeURIComponent(query)
-							+ "&extras=owner_name%2Curl_q&per_page=8&format=json&nojsoncallback=1";
-			request.onload = function () {
-				var response = JSON.parse(this.responseText);
-
-				var content = "";
-
-				for (var i in response.photos.photo) {
-					var url =	[
-									"http://flickr.com/photos",
-									response.photos.photo[i].owner,
-									response.photos.photo[i].id,
-								].join("/")
-					, anchor =	[
-									"<a class='thumbnail' href='",
-									url,
-									"' target='_blank'><img src='",
-									unescape(response.photos.photo[i].url_q),
-									"' title='",
-									response.photos.photo[i].title,
-									"' /><div class='credit'>by: ",
-									response.photos.photo[i].ownername,
-									"</div></a>"
-								].join("");
-
-				content += (anchor);
-				};
-
-				document.getElementById("content").innerHTML = content;
+			// If no inputs provided, let the user know & exit
+			if (!query) {
+				container.innerHTML = "Firing blanks, eh!";
+				return;
 			}
-			request.open("get", endpoint, true);
-			request.send();
+
+			// Let the user know about working the magic
+			container.innerHTML = "Loading...";
+
+			// Fetch data & on success process & append it
+			var wiki = MediaWikiJS('https://en.wikipedia.org');
+			wiki.send({
+				action: 'query',
+				prop: 'revisions',
+				rvprop: "content",
+				rvsection: 0,
+				rvparse: 1,
+				titles: query
+			}, function (data) {
+				var pages = data.query.pages;
+				content = (pages[Object.keys(pages)[0]]
+					.revisions[0]["*"]).split('href="/')
+					.join('href="http://en.wikipedia.org/');
+				container.innerHTML = content;
+			});
 		}
 	</script>
 

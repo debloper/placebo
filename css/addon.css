@@ -24,6 +24,11 @@ section {
   background-color:   #ccc;
   border-bottom:      1px solid #999;
 }
+.infobox, .thumb {
+  float:              right;
+  margin:             auto auto 1rem 1rem;
+}
+.reference, .references { display: none; }
 .thumbnail {
   color:              #444;
   width:              152px;
