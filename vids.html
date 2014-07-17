@@ -36,7 +36,7 @@
 	</nav>
 
 	<div id="infosearch">
-		Would you like to see pictures of:<br />
+		Would you like to know about:<br />
 		<input type="text" id="search" placeholder="Query">
 	</div>
 
@@ -69,35 +69,29 @@
 
 			// Fetch data & on success process & append it
 			var request = new XMLHttpRequest();
-			var endpoint = "https://api.flickr.com/services/rest/?"
-							+ "method=flickr.photos.search&api_key=c9d1d33ffc3d34dbbddc28093b8c2f95"
-							+ "&text="+ encodeURIComponent(query)
-							+ "&extras=owner_name%2Curl_q&per_page=8&format=json&nojsoncallback=1";
+			var endpoint = "http://gdata.youtube.com/feeds/api/videos?q="
+							+ query.split(" ").join("+")
+							+ "&max-results=10&v=2&alt=json";
 			request.onload = function () {
-				var response = JSON.parse(this.responseText);
+				var response = JSON.parse(this.responseText),
+						videos = response.feed.entry,
+						content = "";
 
-				var content = "";
-
-				for (var i in response.photos.photo) {
-					var url =	[
-									"http://flickr.com/photos",
-									response.photos.photo[i].owner,
-									response.photos.photo[i].id,
-								].join("/")
-					, anchor = [
-									"<a class='imgthumb' href='",
-									url,
-									"' target='_blank'><img src='",
-									unescape(response.photos.photo[i].url_q),
-									"' title='",
-									response.photos.photo[i].title,
-									"' /><div class='credit'>by: ",
-									response.photos.photo[i].ownername,
+				for (var i in videos) {
+					var url = videos[i].link[0].href.split("&feature=youtube_gdata")[0],
+							thumb = videos[i].media$group.media$thumbnail[0].url,
+							title = videos[i].title.$t,
+							credit = videos[i].media$group.media$credit[0].$t,
+							item = [
+									"<a class='vidthumb' href='", url,
+									"' target='_blank'><img src='", thumb,
+									"' title='", title,
+									"' /><div class='credit'>by: ", credit,
 									"</div></a>"
 								].join("");
 
-					content += (anchor);
-				};
+					content += item;
+				}
 
 				container.innerHTML = content;
 			}
