@@ -63,17 +63,17 @@
 				var iAm = myName.value;
 				location.assign("index.html#" + iAm);
 			}
+		}
 
-			// If the URL has facilitator's the name:
-			// show name, hide input, ask question
-			var iAm = location.hash.split("#")[1];
-			if (iAm) {
-				var input = document.getElementById("myName");
-				input.parentNode.removeChild(input);
-				document.getElementById("tell").innerHTML += iAm;
-				document.getElementById("ask").style.display = "block";
-				yourName.focus();
-			}
+		// If the URL has facilitator's the name:
+		// show name, hide input, ask question
+		var iAm = location.hash.split("#")[1];
+		if (iAm) {
+			var input = document.getElementById("myName");
+			input.parentNode.removeChild(input);
+			document.getElementById("tell").innerHTML += iAm;
+			document.getElementById("ask").style.display = "block";
+			yourName.focus();
 		}
 
 		// On Enter key while asking, assign URL query & move
