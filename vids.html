@@ -79,11 +79,13 @@
 
 				for (var i in videos) {
 					var url = videos[i].link[0].href.split("&feature=youtube_gdata")[0],
+							id = videos[i].id.$t.split("video:")[1],
 							thumb = videos[i].media$group.media$thumbnail[0].url,
 							title = videos[i].title.$t,
 							credit = videos[i].media$group.media$credit[0].$t,
 							item = [
 									"<a class='vidthumb' href='", url,
+									"' id='", id,
 									"' target='_blank'><img src='", thumb,
 									"' title='", title,
 									"' /><div class='credit'>by: ", credit,
