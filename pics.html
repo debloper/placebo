@@ -17,9 +17,6 @@
 	<link rel="stylesheet" href="css/style.css" />
 	<link rel="stylesheet" href="css/addon.css" />
 
-	<!-- Add web fonts -->
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" />
-
 	<!-- Polyfil for IE -->
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -35,76 +32,40 @@
 		<h1 id="title"><a href="index.html">Web QE Demo App</a></h1>
 	</nav>
 
-	<div id="infosearch">
-		Would you like to see pictures of:<br />
-		<input type="text" id="search" placeholder="Query">
-	</div>
-
 	<section id="content">
+		<a class="imgthumb" href="http://flickr.com/photos/84930071@N04/14863218284" id="14863218284" target="_blank">
+			<img src="img/pics/14863218284_cc5a50e16e_q.jpg" title="White-throated Rock-Thrush" />
+			<div class="credit">by: bambusabird</div>
+		</a>
+		<a class="imgthumb" href="http://flickr.com/photos/49985242@N08/14863213922" id="14863213922" target="_blank">
+			<img src="img/pics/14863213922_57f8128806_q.jpg" title="Blue tailed Bee-eater" />
+			<div class="credit">by: okiox</div>
+		</a>
+		<a class="imgthumb" href="http://flickr.com/photos/84930071@N04/14679033309" id="14679033309" target="_blank">
+			<img src="img/pics/14679033309_ab7ab56728_q.jpg" title="White-throated Rock-Thrush" />
+			<div class="credit">by: bambusabird</div>
+		</a>
+		<a class="imgthumb" href="http://flickr.com/photos/121411935@N07/14676081067" id="14676081067" target="_blank">
+			<img src="img/pics/14676081067_76377ddcdf_q.jpg" title="Tropical Kingbird" />
+			<div class="credit">by: Laura Dodyk</div>
+		</a>
+		<a class="imgthumb" href="http://flickr.com/photos/57453294@N00/14861192715" id="14861192715" target="_blank">
+			<img src="img/pics/14861192715_93f9516bff_q.jpg" title="" />
+			<div class="credit">by: sftrajan</div>
+		</a>
+		<a class="imgthumb" href="http://flickr.com/photos/16426117@N06/14673959750" id="14673959750" target="_blank">
+			<img src="img/pics/14673959750_56156fcd69_q.jpg" title="Papamoscas gris" />
+			<div class="credit">by: eb3alfmiguel</div>
+		</a>
+		<a class="imgthumb" href="http://flickr.com/photos/36338356@N02/14836783786" id="14836783786" target="_blank">
+			<img src="img/pics/14836783786_16c9d68a88_q.jpg" title="Pitiayumí" />
+			<div class="credit">by: ruben gobetti</div>
+		</a>
+		<a class="imgthumb" href="http://flickr.com/photos/92161168@N07/14879133073" id="14879133073" target="_blank">
+			<img src="img/pics/14879133073_5fe3234471_q.jpg" title="" />
+			<div class="credit">by: way12go</div>
+		</a>
 	</section>
-
-	<!-- Lazy Loadable JS -->
-	<script>
-		// Select the input & set focus on it at start
-		var input = document.getElementById("search");
-		input.focus();
-
-		// Call for action when pressed enter to search
-		input.onkeyup = function (event) {
-			if (event.keyCode === 13) getInfo(input.value);
-		}
-
-		// Tell what to do, when called for action
-		function getInfo (query) {
-			var container = document.getElementById("content");
-
-			// If no inputs provided, let the user know & exit
-			if (!query) {
-				container.innerHTML = "Firing blanks, eh!";
-				return;
-			}
-
-			// Let the user know about working the magic
-			container.innerHTML = "Loading...";
-
-			// Fetch data & on success process & append it
-			var request = new XMLHttpRequest();
-			var endpoint = "https://api.flickr.com/services/rest/?"
-							+ "method=flickr.photos.search&api_key=c9d1d33ffc3d34dbbddc28093b8c2f95"
-							+ "&text="+ encodeURIComponent(query)
-							+ "&extras=owner_name%2Curl_q&per_page=8&format=json&nojsoncallback=1";
-			request.onload = function () {
-				var response = JSON.parse(this.responseText);
-
-				var content = "";
-
-				for (var i in response.photos.photo) {
-					var url =	[
-									"http://flickr.com/photos",
-									response.photos.photo[i].owner,
-									response.photos.photo[i].id,
-								].join("/")
-					, anchor = [
-									"<a class='imgthumb' href='", url,
-									"' id='", response.photos.photo[i].id,
-									"' target='_blank'><img src='",
-									unescape(response.photos.photo[i].url_q),
-									"' title='",
-									response.photos.photo[i].title,
-									"' /><div class='credit'>by: ",
-									response.photos.photo[i].ownername,
-									"</div></a>"
-								].join("");
-
-					content += (anchor);
-				};
-
-				container.innerHTML = content;
-			}
-			request.open("get", endpoint, true);
-			request.send();
-		}
-	</script>
 
 </body>
 

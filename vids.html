@@ -17,9 +17,6 @@
 	<link rel="stylesheet" href="css/style.css" />
 	<link rel="stylesheet" href="css/addon.css" />
 
-	<!-- Add web fonts -->
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" />
-
 	<!-- Polyfil for IE -->
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -35,72 +32,32 @@
 		<h1 id="title"><a href="index.html">Web QE Demo App</a></h1>
 	</nav>
 
-	<div id="infosearch">
-		Would you like to know about:<br />
-		<input type="text" id="search" placeholder="Query">
-	</div>
-
 	<section id="content">
+		<a class="vidthumb" href="http://www.youtube.com/watch?v=qTSDL94_Y7M" id="qTSDL94_Y7M" target='_blank'>
+			<img src="img/vids/qTSDL94_Y7M.jpg" title="Best Of The Minions - Despicable Me 1 and Despicable Me 2" />
+			<div class="credit">by: hungerdeans</div>
+		</a>
+		<a class="vidthumb" href="http://www.youtube.com/watch?v=TLWMH5jl1tA" id="TLWMH5jl1tA" target='_blank'>
+			<img src="img/vids/TLWMH5jl1tA.jpg" title="Minions - Training Wheels" />
+			<div class="credit">by: FunFilms</div>
+		</a>
+		<a class="vidthumb" href="http://www.youtube.com/watch?v=1UCFNOPJIJU" id="1UCFNOPJIJU" target='_blank'>
+			<img src="img/vids/1UCFNOPJIJU.jpg" title="The Minions - All in One Videos - Part 1" />
+			<div class="credit">by: Anatoli Nasonow Renatowitsch</div>
+		</a>
+		<a class="vidthumb" href="http://www.youtube.com/watch?v=KBVdT4teH5g" id="KBVdT4teH5g" target='_blank'>
+			<img src="img/vids/KBVdT4teH5g.jpg" title="Minions Puppy YouTube" />
+			<div class="credit">by: Eslam Samir</div>
+		</a>
+		<a class="vidthumb" href="http://www.youtube.com/watch?v=ZYXTZh8CW4E" id="ZYXTZh8CW4E" target='_blank'>
+			<img src="img/vids/ZYXTZh8CW4E.jpg" title="Minions - Banana 14:20 mins" />
+			<div class="credit">by: ohvsk8</div>
+		</a>
+		<a class="vidthumb" href="http://www.youtube.com/watch?v=V6oqr49llXQ" id="V6oqr49llXQ" target='_blank'>
+			<img src="img/vids/V6oqr49llXQ.jpg" title="Home Makeover - Minions Mini Movies 2014" />
+			<div class="credit">by: Minions Movie</div>
+		</a>
 	</section>
-
-	<!-- Lazy Loadable JS -->
-	<script>
-		// Select the input & set focus on it at start
-		var input = document.getElementById("search");
-		input.focus();
-
-		// Call for action when pressed enter to search
-		input.onkeyup = function (event) {
-			if (event.keyCode === 13) getInfo(input.value);
-		}
-
-		// Tell what to do, when called for action
-		function getInfo (query) {
-			var container = document.getElementById("content");
-
-			// If no inputs provided, let the user know & exit
-			if (!query) {
-				container.innerHTML = "Firing blanks, eh!";
-				return;
-			}
-
-			// Let the user know about working the magic
-			container.innerHTML = "Loading...";
-
-			// Fetch data & on success process & append it
-			var request = new XMLHttpRequest();
-			var endpoint = "http://gdata.youtube.com/feeds/api/videos?q="
-							+ query.split(" ").join("+")
-							+ "&max-results=10&v=2&alt=json";
-			request.onload = function () {
-				var response = JSON.parse(this.responseText),
-						videos = response.feed.entry,
-						content = "";
-
-				for (var i in videos) {
-					var url = videos[i].link[0].href.split("&feature=youtube_gdata")[0],
-							id = videos[i].id.$t.split("video:")[1],
-							thumb = videos[i].media$group.media$thumbnail[0].url,
-							title = videos[i].title.$t,
-							credit = videos[i].media$group.media$credit[0].$t,
-							item = [
-									"<a class='vidthumb' href='", url,
-									"' id='", id,
-									"' target='_blank'><img src='", thumb,
-									"' title='", title,
-									"' /><div class='credit'>by: ", credit,
-									"</div></a>"
-								].join("");
-
-					content += item;
-				}
-
-				container.innerHTML = content;
-			}
-			request.open("get", endpoint, true);
-			request.send();
-		}
-	</script>
 
 </body>
 
