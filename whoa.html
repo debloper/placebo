@@ -25,7 +25,7 @@
 	<![endif]-->
 
 	<!-- Lastly, scripts -->
-	<script src="#"></script>
+	<script src="js/mediawiki.js"></script>
 
 </head>
 
@@ -35,21 +35,26 @@
 		<h1 id="title"><a href="index.html">Web QE Demo App</a></h1>
 	</nav>
 
-	<section id="welcome">
-		<h2>Welcome<span id="yourName">, </span>!</h2>
-		<p>This is a demo web-app.</p>
-		<p>Click the following links to give it a try...</p>
-		<div>
-			<a class="button" id="gotoList" href="list.html">Click this one</a>
-			<a class="button" id="gotoWhoa" href="whoa.html">No, this one...</a>
-		</div>
-		<h3>Go ahead, click 'em!</h3>
+	<section id="content">
+		<h3>Whoa! You clicked the second link...</h3>
+		<p>...and found an easter egg! :D</p>
+		<button id="showWhoa">Surprise Surprise</button>
+		<p id="pyWhoa">
+			<img src="img/python.png">
+			<br>
+			<small>
+			<code>`python import antigravity`</code>
+				Image Credit: <a href="http://xkcd.com/353/" alt="XKCD URL">XKCD</a>
+			</small>
+		</p>
 	</section>
 
 	<!-- Lazy Loadable JS -->
 	<script>
-		var yourName = location.search.split("?")[1];
-		document.getElementById("yourName").innerHTML += yourName;
+		document.getElementById("showWhoa").addEventListener("click", function (e) {
+			document.getElementById("pyWhoa").style.display = "block";
+			document.getElementById("showWhoa").style.display = "none";
+		}, false);
 	</script>
 
 </body>

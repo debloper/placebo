@@ -25,7 +25,7 @@
 	<![endif]-->
 
 	<!-- Lastly, scripts -->
-	<script src="#"></script>
+	<script src="js/mediawiki.js"></script>
 
 </head>
 
@@ -35,21 +35,25 @@
 		<h1 id="title"><a href="index.html">Web QE Demo App</a></h1>
 	</nav>
 
-	<section id="welcome">
-		<h2>Welcome<span id="yourName">, </span>!</h2>
-		<p>This is a demo web-app.</p>
-		<p>Click the following links to give it a try...</p>
-		<div>
-			<a class="button" id="gotoList" href="list.html">Click this one</a>
-			<a class="button" id="gotoWhoa" href="whoa.html">No, this one...</a>
-		</div>
-		<h3>Go ahead, click 'em!</h3>
+	<section id="content">
+		<h3>Nice... you clicked the first link!</h3>
+		<p>Wanna see a list of Python Web Frameworks?</p>
+		<button id="showList">Unhide List</button>
+		<ul id="pyList">
+			<li>Django</li>
+			<li>Flask</li>
+			<li>Pylons</li>
+			<li>Pyramid</li>
+			<li><i>and more...</i></li>
+		</ul>
 	</section>
 
 	<!-- Lazy Loadable JS -->
 	<script>
-		var yourName = location.search.split("?")[1];
-		document.getElementById("yourName").innerHTML += yourName;
+		document.getElementById("showList").addEventListener("click", function (e) {
+			document.getElementById("pyList").style.display = "block";
+			document.getElementById("showList").style.display = "none";
+		}, false);
 	</script>
 
 </body>

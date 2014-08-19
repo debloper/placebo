@@ -30,19 +30,11 @@ a {
   outline:            0;
   text-decoration:    none;
 }
-hr {
-  border:             1px solid;
-  border-color:       #aaa transparent #fff;
-}
 
 body > * {
   padding:            4px calc((100% - 800px)/2);
 }
 
-dt {
-	margin-top:         1rem;
-	font-weight:        bold;
-}
 h1 { font-size: 3rem; }
 h2 { font-size: 2.25rem; }
 h3 { font-size: 2rem; }
@@ -68,31 +60,34 @@ nav h1 a {
 }
 
 section {
-  height:             calc(100vh - 6rem);
   text-align:         center;
-  font-size:          2rem;
-}
-
-dl, ol, ul {
-	font-size:          1.2rem;
+  font-size:          1.25rem;
 }
 
 /* 1. ID & Class */
-#ask { display: none; }
-.portal {
-  color:              #ecf0f1;
-  padding:            4px 1rem;
-  font-size:          1.25rem;
-}
-.choices {
+#ask, #pyList, #pyWhoa { display: none; }
+.button, button {
   display:            inline-block;
   padding:            0.5rem 1rem;
   margin:             0.5rem;
   color:              #fff;
   background-color:   #e98b39;
+  border:             none;
   border-bottom:      4px solid #d35400;
   -webkit-transition: all 300ms ease;
   transition:         all 300ms ease;
+}
+#pyWhoa {
+  height: 320px;
+  overflow: hidden;
+}
+#pyWhoa code {
+  display: block;
+}
+#pyWhoa small {
+  color: #fff;
+  bottom: 320px;
+  position: relative;
 }
 
 /* 2. Pseudoclass */
@@ -109,7 +104,7 @@ input[type="text"]:focus {
 #title a:hover {
   text-shadow:        0 0 2px #222, 0 0 4px #fff;
 }
-.choices:hover {
+.button:hover, button:hover {
   background-color:   #466077;
   border-bottom:      4px solid #2c3e50;
 }
