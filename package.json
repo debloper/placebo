@@ -1,8 +1,8 @@
 {
-  "name": "app",
+  "name": "placebo",
   "version": "0.0.1",
   "author": "Soumya Deb <debloper@gmail.com>",
-  "description": "Oneliner elevator-pitch of the app",
+  "description": "A bare minimal web-project boilerplate",
   "contributors": [
     {
       "name": "Soumya Deb",
@@ -14,18 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/debloper/app.git"
+    "url": "https://github.com/debloper/placebo.git"
   },
   "keywords": [
-    "example"
+    "placebo",
+    "frontend",
+    "boilerplate"
   ],
-  "dependencies" : {
-    "ecstatic" :  "0.4.x"
-  },
+  "dependencies" : {},
   "devDependencies": {},
   "bundledDependencies": [],
-  "license": "WTFPL",
-  "engines": {
-    "node": ">=0.10"
-  }
+  "license": "WTFPL"
 }
